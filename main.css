@@ -83,6 +83,15 @@ body {
   background: black;
   color: white;
 }
+.outer-menu-item4 {
+  float: left; /* 수평 정렬 */
+  position: relative;
+}
+
+.outer-menu-item4:hover {
+  background: black;
+  color: white;
+}
 .menu-title {
   display: block;
   height: 30px;
