@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "맑은 고딕", "Malgun Gothic", Gothic, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+
+body {
+  width: 960px;
+  margin: 0 auto; /* 중앙 정렬 코드 */
+  background: #e6e6e6;
+}
+
+#page-wrapper {
+  background: white;
+  margin: 40px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+
+#main-header {
+  padding: 40px 50px;
+}
+
+.master-title {
+  font-size: 30px;
+  color: #181818;
+}
+.master-description {
+  font-size: 15px;
+  font-weight: 500;
+  color: #383838;
+}
+
+#main-navigation {
+  border-top: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
+  margin-bottom: 20px;
+  height: 40px; /* 높이를 강제로 지정 */
+}
+
+.outer-menu-item1 {
+  float: left; /* 수평 정렬 */
+  position: relative;
+}
+
+.outer-menu-item1:hover {
+  background: black;
+  color: white;
+}
+
+.outer-menu-item2 {
+  float: left; /* 수평 정렬 */
+  position: relative;
+}
+
+.outer-menu-item2:hover {
+  background: black;
+  color: white;
+}
+
+.outer-menu-item3 {
+  float: left; /* 수평 정렬 */
+  position: relative;
+}
+
+.outer-menu-item3:hover {
+  background: black;
+  color: white;
+}
+.menu-title {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 5px 20px;
+}
+
+.inner-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 6px rgba(5, 5, 5, 0.9);
+  z-index: 1000;
+  text-align: center;
+}
+
+.inner-menu-item > a {
+  display: block;
+  padding: 5px 10px;
+  color: black;
+}
+
+.inner-menu-item > a:hover {
+  background: black;
+  color: white;
+}
+
+/* body 태그의 너비: 960px */
+/* #page-wrapper 태그의 padding 속성으로 내용물 너비는 920px */
+#content {
+  overflow: hidden;
+}
+
+#main-section {
+  float: left;
+  width: 710px;
+}
+#main-aside {
+  float: right;
+  width: 200px;
+}
+
+/*  자손에게 float 속성을 지정하고, 부모의 overflow 속성은 hidden으로 적용했다. */
+
+article {
+  padding: 0 10px 20px 10px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.article-header {
+  padding: 20px 0;
+}
+.article-title {
+  font-size: 25px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+.article-date {
+  font-size: 13px;
+}
+.article-body {
+  font-size: 14px;
+}
+
+.aside-list {
+  padding: 10px 0 30px 0;
+}
+.aside-list > h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.aside-list li a {
+  margin-left: 8px;
+  font-size: 13px;
+  color: #6c6c6c;
+}
