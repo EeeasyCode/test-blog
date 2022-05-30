@@ -37,6 +37,13 @@ body {
   padding: 40px 50px;
 }
 
+#main-header img {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-right: 10px;
+}
+
 .master-title {
   font-size: 30px;
   color: #181818;
@@ -45,6 +52,43 @@ body {
   font-size: 15px;
   font-weight: 500;
   color: #383838;
+}
+
+.search {
+  height: 34px;
+  position: relative;
+  top: 5px;
+}
+
+.search input {
+  width: 30px;
+  height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  color: #777;
+  font-size: 12px;
+  transition: width 0.4s;
+}
+
+.search input::focus {
+  width: 190px;
+  border-color: #669900;
+}
+.search .material-icons {
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: 0.4s;
+}
+.search.focused .material-icons {
+  opacity: 0;
 }
 
 #main-navigation {

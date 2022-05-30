@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <title>eeeasycode</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(document).ready(()=>{
@@ -38,17 +43,30 @@
           () => {
             $(".outer-menu-item4").find(".inner-menu").hide()
           }
-        )
+        ),
+        $(".search input").focus(()=>{
+          $(".search input").css({
+            width: 190,
+            borderColor: "#669900"
+          })
+        }),
+        $(".search input").blur(()=>{
+          $(".search input").css({
+            width: 30,
+            borderColor: ""          
+          })
+        })
       })
     </script>
-    <!-- <script type="text/javascript" src="main.js"></script> -->
+    <script defer src="main.js"></script>
   </body>
   <body>
     <div id="page-wrapper">
       <header id="main-header">
         <hgroup>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDn40M2AEIm85BgdCOpcOePoLCc2cf8PImA&usqp=CAU">
           <a href="index.html"><h1 class="master-title">Dev-log</h1></a>
-          <h2 class="master-description">개발블로그</h2>
+          <h2 class="master-description">Easycode 개발블로그</h2>
         </hgroup>
       </header>
       <nav id="main-navigation">
@@ -90,11 +108,9 @@
           </ul>
         </div>
         <div class="pull-right">
-          <div class="search-bar">
-            <form>
-              <input type="text" class="input-search" />
-              <input type="submit" class="input-search-submit" value="검색" />
-            </form>
+          <div class="search">
+            <input type="text" />
+            <div class="material-icons">search</div>
           </div>
         </div>
       </nav>
@@ -104,7 +120,7 @@
             <div class="article-header">
               <h1 class="article-title">My Git-hub link</h1>
               <a href="https://github.com/eeeasycode" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWAenu4QYegeAl8UAlVpZMGcbeIgWXzKNfpA&usqp=CAU"></a>
-              
+
             </div>
             <div class="article-body">        
               <br />
