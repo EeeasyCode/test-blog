@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
     <style>
       div.item:nth-child(1) {
         background: blueviolet;
       }
       div.item:nth-child(2) {
-        background: pink;
+        background-color: pink;
       }
       div.item:nth-child(3) {
-        background: burlywood;
+        background-color: burlywood;
+      }
+      div.item:nth-child(4) {
+        background-color: darkblue;
+      }
+      div.item:nth-child(5) {
+        background-color: Crimson;
+      }
+      div.item:nth-child(6) {
+        background-color: DarkSeaGreen;
+      }
+      div.item:nth-child(7) {
+        background-color: fuchsia;
+      }
+      div.item:nth-child(8) {
+        background-color: DarkSlateGray;
+      }
+      div.item:nth-child(9) {
+        background-color: Coral;
       }
     </style>
-    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
-      $(document).ready(() => {
+      $(document).ready(function () {
         var width = $('[data-role="slider"]').attr("data-width");
         var height = $('[data-role="slider"]').attr("data-height");
         var count = $('[data-role="slider"] div.item').length;
@@ -31,9 +47,11 @@
           })
           .find(".container")
           .css({
+            textAlign: "center",
             position: "absolute",
-            width: count * width,
-            overflow: "hidden",
+            width: (count * width) / 3,
+            height: (count * height) / 3,
+            overflow: "hidden", //overflow가 hidden이라서 넘어가는 부분은 보이지 않음
           })
           .find(".item")
           .css({
@@ -42,41 +60,109 @@
             float: "left",
           });
 
-        var currentPage = 0;
-        var changePage = () => {
+        var currentwidthPage = 0;
+        var currentheightPage = 0;
+        var changePage = function () {
           $('[data-role="slider"] > .container').animate(
             {
-              left: -currentPage * width,
+              left: -currentwidthPage * width,
             },
-            500
+            1000
           );
         };
-        $("#left-button").click(() => {
-          if (currentPage > 0) {
-            currentPage = currentPage - 1;
+
+        var downPage = function () {
+          $('[data-role="slider"] > .container').animate(
+            {
+              top: -currentheightPage * height,
+            },
+            1000
+          );
+        };
+
+        $("#left-button").click(function () {
+          if (currentwidthPage > 0) {
+            currentwidthPage = currentwidthPage - 1;
             changePage();
+          } else {
+            alert("왼쪽 끝입니다.");
           }
         });
-        $("#right-button").click(() => {
-          if (currentPage < count - 1) {
-            currentPage = currentPage + 1;
+
+        $("#right-button").click(function () {
+          if (currentwidthPage < count / 3 - 1) {
+            currentwidthPage = currentwidthPage + 1;
             changePage();
+          } else {
+            alert("오른쪽 끝입니다.");
+          }
+        });
+
+        $("#down-button").click(function () {
+          if (currentheightPage < count / 3 - 1) {
+            currentheightPage = currentheightPage + 1;
+            downPage();
+          } else {
+            alert("아래 끝입니다.");
+          }
+        });
+
+        $("#up-button").click(function () {
+          if (currentheightPage > 0) {
+            currentheightPage = currentheightPage - 1;
+            downPage();
+          } else {
+            alert("위 끝입니다.");
           }
         });
       });
     </script>
-
-    <title>Document</title>
   </head>
+
   <body>
     <div data-role="slider" data-width="500" data-height="300">
       <div class="container">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        <div class="item">
+          <h1>1 x 1 cell</h1>
+          <p>* 정규화</p>
+        </div>
+        <div class="item">
+          <h1>1 x 2 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>1 x 3 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>2 x 1 cell</h1>
+          <p>* 정규화</p>
+        </div>
+        <div class="item">
+          <h1>2 x 2 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>2 x 3 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>3 x 1 cell</h1>
+          <p>* 정규화</p>
+        </div>
+        <div class="item">
+          <h1>3 x 2 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>3 x 3 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
       </div>
     </div>
-    <button id="left-button"><-</button>
-    <button id="right-button">-></button>
+    <button id="left-button">left</button>
+    <button id="right-button">right</button>
+    <button id="up-button">up</button>
+    <button id="down-button">down</button>
   </body>
 </html>

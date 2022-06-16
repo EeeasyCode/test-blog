@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>순환슬라이드</title>
     <style>
       div.item:nth-child(1) {
         background: blueviolet;
       }
       div.item:nth-child(2) {
-        background: pink;
+        background-color: pink;
       }
       div.item:nth-child(3) {
-        background: burlywood;
+        background-color: burlywood;
       }
     </style>
-    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
-      $(document).ready(() => {
+      $(document).ready(function () {
         var width = $('[data-role="slider"]').attr("data-width");
         var height = $('[data-role="slider"]').attr("data-height");
         var count = $('[data-role="slider"] div.item').length;
@@ -31,6 +29,7 @@
           })
           .find(".container")
           .css({
+            textAlign: "center",
             position: "absolute",
             width: count * width,
             overflow: "hidden",
@@ -43,40 +42,56 @@
           });
 
         var currentPage = 0;
-        var changePage = () => {
+        var changePage = function () {
           $('[data-role="slider"] > .container').animate(
             {
               left: -currentPage * width,
             },
-            500
+            1500
           );
         };
-        $("#left-button").click(() => {
+
+        $("#left-button").click(function () {
           if (currentPage > 0) {
             currentPage = currentPage - 1;
             changePage();
+          } else {
+            currentPage = currentPage + 2;
+            changePage();
           }
         });
-        $("#right-button").click(() => {
+
+        $("#right-button").click(function () {
           if (currentPage < count - 1) {
             currentPage = currentPage + 1;
+            changePage();
+          } else {
+            currentPage = currentPage - 2;
             changePage();
           }
         });
       });
     </script>
-
-    <title>Document</title>
   </head>
+
   <body>
     <div data-role="slider" data-width="500" data-height="300">
       <div class="container">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        <div class="item">
+          <h1>1 x 1 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>1 x 2 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="item">
+          <h1>1 x 3 cell</h1>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
       </div>
     </div>
-    <button id="left-button"><-</button>
-    <button id="right-button">-></button>
+    <button id="left-button">left</button>
+    <button id="right-button">right</button>
   </body>
 </html>
