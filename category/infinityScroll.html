@@ -15,7 +15,6 @@
           var scrollHeight = $(window).scrollTop() + $(window).height();
           var documentHeight = $(document).height();
 
-          console.log(Math.floor(scrollHeight), documentHeight);
           if (Math.floor(scrollHeight) > documentHeight - 100) {
             appendDocument();
           }

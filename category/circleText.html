@@ -14,7 +14,7 @@
         let rightLoop;
         let leftLoop;
         $("#thankss").text(changedText.join(""));
-        $("#left").on("click", (e) => {
+        $("#right").on("click", () => {
           if (rightLoop) {
             clearInterval(rightLoop);
           }
@@ -30,7 +30,7 @@
             clearInterval(rightLoop);
           }
         });
-        $("#right").on("click", (e) => {
+        $("#left").on("click", () => {
           if (rightLoop) {
             clearInterval(rightLoop);
           }
@@ -43,7 +43,7 @@
             $("#thankss").text(changedText.join(""));
           }, 500);
         });
-        $("#stop").on("click", (e) => {
+        $("#stop").on("click", () => {
           if (rightLoop) {
             clearInterval(rightLoop);
           }
